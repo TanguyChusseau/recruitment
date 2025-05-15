@@ -6,6 +6,7 @@ import constants.Meals;
 import constants.Restaurants;
 import constants.RestaurantOwners;
 import models.restaurant.Meal;
+import models.restaurant.Restaurant;
 import models.user.customer.Customer;
 import models.user.restaurantowner.RestaurantOwner;
 
@@ -33,7 +34,12 @@ public class MakeOrderInRestaurantApplication {
 
         logger.info("Making orders...");
         catherineZwahlen.makeOrder(Restaurants.TICINO, List.of(Meals.PIZZA_TONNO, Meals.TIRAMISU));
-        clementineDelerce.makeOrder(Restaurants.ETOILE, List.of(Meals.RISOTTO, Meals.BANANA_SPLIT));
+
+        logger.info("Looking for vegetarian restaurants...");
+        List<Restaurant> restaurants = clementineDelerce.getVegetarianRestaurants(
+                List.of(Restaurants.TICINO, Restaurants.TEXAN, Restaurants.ETOILE)
+        );
+        restaurants.forEach(restaurant -> clementineDelerce.makeOrder(restaurant, restaurant.getMeals()));
 
         logger.info("Orders made successfully. Stopping MakeOrderInRestaurantApplication.");
     }

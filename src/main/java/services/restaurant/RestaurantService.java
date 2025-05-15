@@ -1,12 +1,14 @@
 package services.restaurant;
 
 import models.restaurant.Meal;
+import models.restaurant.MealType;
 import models.restaurant.Restaurant;
 import models.restaurant.exceptions.MealAlreadyExistsException;
 import models.restaurant.exceptions.MealNotFoundException;
 import models.restaurant.exceptions.MealInvalidPriceException;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 public class RestaurantService extends AbstractRestaurantService {
@@ -44,5 +46,9 @@ public class RestaurantService extends AbstractRestaurantService {
         }
 
         return meal.getPriceHistory();
+    }
+
+    public List<Restaurant> getVegetarianRestaurants(List<Restaurant> restaurants) {
+        return restaurants.stream().filter(Restaurant::isVegetarian).toList();
     }
 }

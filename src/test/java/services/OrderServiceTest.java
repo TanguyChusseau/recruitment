@@ -1,6 +1,7 @@
 package services;
 
 import models.restaurant.Meal;
+import models.restaurant.MealType;
 import models.restaurant.exceptions.MealNotFoundException;
 import models.restaurant.Restaurant;
 import models.user.customer.Customer;
@@ -21,11 +22,11 @@ class OrderServiceTest {
         Restaurant restaurant = new Restaurant("Bio Burger");
         Customer customer = new Customer("Jean", "Valjean", CustomerType.STUDENT);
 
-        Meal existingMeal = new Meal(restaurant, "Tenders", 9.0);
+        Meal existingMeal = new Meal(restaurant, "Tenders", MealType.CLASSIC, 9.0);
         restaurant.addMeal(existingMeal);
 
         // When and Then
-        Meal nonExistingMeal = new Meal(restaurant, "Non existing meal", 12.0);
+        Meal nonExistingMeal = new Meal(restaurant, "Non existing meal", MealType.CLASSIC, 12.0);
 
         assertThrows(MealNotFoundException.class,
                 () -> orderService.makeOrder(restaurant, customer, List.of(nonExistingMeal)),
@@ -41,7 +42,7 @@ class OrderServiceTest {
         Restaurant restaurant = new Restaurant("Bio Burger");
         Customer customer = new Customer("Jean", "Valjean", CustomerType.STUDENT);
 
-        Meal existingMeal = new Meal(restaurant, "Tenders", 9.0);
+        Meal existingMeal = new Meal(restaurant, "Tenders", MealType.CLASSIC, 9.0);
         restaurant.addMeal(existingMeal);
 
         // When
@@ -60,7 +61,7 @@ class OrderServiceTest {
         Restaurant restaurant = new Restaurant("Bio Burger");
         Customer customer = new Customer("Jean", "Valjean", CustomerType.STUDENT);
 
-        Meal existingMeal = new Meal(restaurant,"Tenders", 9.0);
+        Meal existingMeal = new Meal(restaurant,"Tenders", MealType.CLASSIC, 9.0);
         restaurant.addMeal(existingMeal);
 
         // When

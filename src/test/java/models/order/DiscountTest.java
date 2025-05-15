@@ -1,6 +1,7 @@
 package models.order;
 
 import models.restaurant.Meal;
+import models.restaurant.MealType;
 import models.restaurant.Restaurant;
 import models.user.customer.Customer;
 import models.user.customer.CustomerType;
@@ -56,7 +57,7 @@ class DiscountTest {
         // Given
         Customer customer = new Customer("John", "Child", CustomerType.CHILD);
         Restaurant dominos = new Restaurant("Dominos");
-        Meal pizza = new Meal(dominos, "Meal", 10.0);
+        Meal pizza = new Meal(dominos, "Meal", MealType.CLASSIC, 10.0);
 
         Order order10 = new Order(dominos, customer, List.of(pizza));
         customer.addOrder(order10);
@@ -74,7 +75,7 @@ class DiscountTest {
         // Given
         Customer customer = new Customer("John", "Child", CustomerType.CHILD);
         Restaurant dominos = new Restaurant("Dominos");
-        Meal pizza = new Meal(dominos, "Meal", 10.0);
+        Meal pizza = new Meal(dominos, "Meal", MealType.CLASSIC, 10.0);
 
         List<Order> customerOrders = generateCustomerOrders(dominos, customer, pizza);
         customerOrders.forEach(customer::addOrder);

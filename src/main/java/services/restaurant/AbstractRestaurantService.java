@@ -4,6 +4,7 @@ import models.restaurant.Meal;
 import models.restaurant.Restaurant;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractRestaurantService {
@@ -12,4 +13,6 @@ public abstract class AbstractRestaurantService {
     public abstract void updateMealPrice(Restaurant restaurant, Meal meal, Double newPrice);
 
     public abstract Map<LocalDateTime, Double> checkMealPriceHistory(Restaurant restaurant, Meal meal);
+
+    public abstract List<Restaurant> getVegetarianRestaurants(List<Restaurant> restaurants);
 }

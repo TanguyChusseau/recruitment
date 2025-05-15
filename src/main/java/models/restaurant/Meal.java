@@ -7,7 +7,6 @@ import java.util.Map;
 import java.util.Objects;
 
 import lombok.Getter;
-import lombok.Setter;
 import models.Entity;
 
 import static java.time.LocalDateTime.now;
@@ -20,14 +19,18 @@ public class Meal implements Entity {
     private final String name;
 
     @Getter
+    private final MealType type;
+
+    @Getter
     private Double price;
 
     private final Map<LocalDateTime, Double> priceHistory;
 
-    public Meal(Restaurant restaurant, String name, Double price) {
+    public Meal(Restaurant restaurant, String name, MealType type, Double price) {
         this.restaurant = restaurant;
         this.name = name;
         this.price = price;
+        this.type = type;
         this.priceHistory = new LinkedHashMap<>();
         this.priceHistory.put(now(), price);
     }

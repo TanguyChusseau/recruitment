@@ -1,6 +1,7 @@
 package models.order;
 
 import models.restaurant.Meal;
+import models.restaurant.MealType;
 import models.restaurant.Restaurant;
 import models.user.customer.Customer;
 import org.junit.jupiter.api.Test;
@@ -18,8 +19,8 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", CHILD);
         Restaurant restaurant = new Restaurant("The restaurant");
 
-        Meal meal1 = new Meal(restaurant, "Meal 1", 15.0);
-        Meal meal2 = new Meal(restaurant, "Meal 2", 10.0);
+        Meal meal1 = new Meal(restaurant, "Meal 1", MealType.CLASSIC, 15.0);
+        Meal meal2 = new Meal(restaurant, "Meal 2", MealType.CLASSIC, 10.0);
         restaurant.addMeal(meal1);
         restaurant.addMeal(meal2);
 
@@ -42,8 +43,8 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", CHILD);
         Restaurant restaurant = new Restaurant("The restaurant");
 
-        Meal meal1 = new Meal(restaurant, "Meal 1", 15.0);
-        Meal meal2 = new Meal(restaurant, "Meal 2", 10.0);
+        Meal meal1 = new Meal(restaurant, "Meal 1", MealType.CLASSIC, 15.0);
+        Meal meal2 = new Meal(restaurant, "Meal 2", MealType.CLASSIC, 10.0);
         restaurant.addMeal(meal1);
         restaurant.addMeal(meal2);
 
@@ -68,7 +69,7 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", CHILD);
         Restaurant restaurant = new Restaurant("The restaurant");
 
-        Meal meal = new Meal(restaurant, "Meal", 10.0);
+        Meal meal = new Meal(restaurant, "Meal", MealType.CLASSIC, 10.0);
         restaurant.addMeal(meal);
 
         Order order1 = new Order(restaurant, customer, List.of(meal));
@@ -98,7 +99,7 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", CHILD);
         Restaurant dominos = new Restaurant("Dominos");
 
-        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", 10.0);
+        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", MealType.CLASSIC, 10.0);
         dominos.addMeal(baconGroovy);
 
         List<Order> customerOrders = generateCustomerOrders(dominos, customer, baconGroovy);
@@ -127,8 +128,8 @@ class OrderTest {
         Restaurant dominos = new Restaurant("Dominos");
         Restaurant pizzaHut = new Restaurant("Pizza Hut");
 
-        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", 10.0);
-        Meal indianCurryPizza = new Meal(pizzaHut, "Indian Curry", 12.0);
+        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", MealType.CLASSIC, 10.0);
+        Meal indianCurryPizza = new Meal(pizzaHut, "Indian Curry", MealType.CLASSIC, 12.0);
         dominos.addMeal(baconGroovy);
         pizzaHut.addMeal(indianCurryPizza);
 
@@ -153,8 +154,8 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", STUDENT);
         Restaurant restaurant = new Restaurant("The restaurant");
 
-        Meal meal1 = new Meal(restaurant, "Meal 1", 15.0);
-        Meal meal2 = new Meal(restaurant, "Meal 2", 10.0);
+        Meal meal1 = new Meal(restaurant, "Meal 1", MealType.CLASSIC, 15.0);
+        Meal meal2 = new Meal(restaurant, "Meal 2", MealType.CLASSIC, 10.0);
         restaurant.addMeal(meal1);
         restaurant.addMeal(meal2);
 
@@ -177,8 +178,8 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", STUDENT);
         Restaurant restaurant = new Restaurant("The restaurant");
 
-        Meal meal1 = new Meal(restaurant, "Meal 1", 15.0);
-        Meal meal2 = new Meal(restaurant, "Meal 2", 10.0);
+        Meal meal1 = new Meal(restaurant, "Meal 1", MealType.CLASSIC, 15.0);
+        Meal meal2 = new Meal(restaurant, "Meal 2", MealType.CLASSIC, 10.0);
         restaurant.addMeal(meal1);
         restaurant.addMeal(meal2);
 
@@ -203,7 +204,7 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", STUDENT);
         Restaurant restaurant = new Restaurant("The restaurant");
 
-        Meal meal = new Meal(restaurant, "Meal", 10.0);
+        Meal meal = new Meal(restaurant, "Meal", MealType.CLASSIC, 10.0);
         restaurant.addMeal(meal);
 
         Order order1 = new Order(restaurant, customer, List.of(meal));
@@ -233,7 +234,7 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", STUDENT);
         Restaurant dominos = new Restaurant("Dominos");
 
-        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", 10.0);
+        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", MealType.CLASSIC, 10.0);
         dominos.addMeal(baconGroovy);
 
         List<Order> customerOrders = generateCustomerOrders(dominos, customer, baconGroovy);
@@ -262,8 +263,8 @@ class OrderTest {
         Restaurant dominos = new Restaurant("Dominos");
         Restaurant pizzaHut = new Restaurant("Pizza Hut");
 
-        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", 10.0);
-        Meal indianCurryPizza = new Meal(pizzaHut, "Indian Curry", 12.0);
+        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", MealType.CLASSIC, 10.0);
+        Meal indianCurryPizza = new Meal(pizzaHut, "Indian Curry", MealType.CLASSIC, 12.0);
         dominos.addMeal(baconGroovy);
         pizzaHut.addMeal(indianCurryPizza);
 
@@ -288,8 +289,8 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", OTHER);
         Restaurant restaurant = new Restaurant("The restaurant");
 
-        Meal meal1 = new Meal(restaurant, "Meal 1", 15.0);
-        Meal meal2 = new Meal(restaurant, "Meal 2", 10.0);
+        Meal meal1 = new Meal(restaurant, "Meal 1", MealType.CLASSIC, 15.0);
+        Meal meal2 = new Meal(restaurant, "Meal 2", MealType.CLASSIC, 10.0);
         restaurant.addMeal(meal1);
         restaurant.addMeal(meal2);
 
@@ -311,8 +312,8 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", OTHER);
         Restaurant restaurant = new Restaurant("The restaurant");
 
-        Meal meal1 = new Meal(restaurant, "Meal 1", 15.0);
-        Meal meal2 = new Meal(restaurant, "Meal 2", 10.0);
+        Meal meal1 = new Meal(restaurant, "Meal 1", MealType.CLASSIC, 15.0);
+        Meal meal2 = new Meal(restaurant, "Meal 2", MealType.CLASSIC, 10.0);
         restaurant.addMeal(meal1);
         restaurant.addMeal(meal2);
 
@@ -336,7 +337,7 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", OTHER);
         Restaurant restaurant = new Restaurant("The restaurant");
 
-        Meal meal = new Meal(restaurant, "Meal", 10.0);
+        Meal meal = new Meal(restaurant, "Meal", MealType.CLASSIC, 10.0);
         restaurant.addMeal(meal);
 
         Order order1 = new Order(restaurant, customer, List.of(meal));
@@ -366,7 +367,7 @@ class OrderTest {
         Customer customer = new Customer("Ba", "Bar", OTHER);
         Restaurant dominos = new Restaurant("Dominos");
 
-        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", 10.0);
+        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", MealType.CLASSIC, 10.0);
         dominos.addMeal(baconGroovy);
 
         List<Order> customerOrders = generateCustomerOrders(dominos, customer, baconGroovy);
@@ -394,8 +395,8 @@ class OrderTest {
         Restaurant dominos = new Restaurant("Dominos");
         Restaurant pizzaHut = new Restaurant("Pizza Hut");
 
-        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", 10.0);
-        Meal indianCurryPizza = new Meal(pizzaHut, "Indian Curry", 12.0);
+        Meal baconGroovy = new Meal(dominos, "Bacon Groovy", MealType.CLASSIC, 10.0);
+        Meal indianCurryPizza = new Meal(pizzaHut, "Indian Curry", MealType.CLASSIC, 12.0);
         dominos.addMeal(baconGroovy);
         pizzaHut.addMeal(indianCurryPizza);
 
