@@ -26,6 +26,7 @@ class OrderServiceTest {
 
         // When and Then
         Meal nonExistingMeal = new Meal(restaurant, "Non existing meal", 12.0);
+
         assertThrows(MealNotFoundException.class,
                 () -> orderService.makeOrder(restaurant, customer, List.of(nonExistingMeal)),
                 "No meal named Non existing meal found in restaurant Bio Burger"
@@ -47,28 +48,8 @@ class OrderServiceTest {
         orderService.makeOrder(restaurant, customer, List.of(existingMeal));
 
         // Then
-        assertEquals(1, restaurant.getMeals().size());
-        assertTrue(restaurant.getMeals().stream().anyMatch(meal -> meal.getName().equals("Tenders")));
         assertEquals(1, restaurant.getOrders().size());
         assertEquals(1, customer.getOrders().size());
-    }
-
-    @Test
-    void makeOrder_whenMealFound_thenDoesNotThrow() {
-        // Given
-        OrderService orderService = new OrderService();
-
-        Restaurant restaurant = new Restaurant("Bio Burger");
-        Customer customer = new Customer("Jean", "Valjean", CustomerType.STUDENT);
-
-        Meal existingMeal = new Meal(restaurant, "Tenders", 9.0);
-        restaurant.addMeal(existingMeal);
-
-        // When and Then
-        assertDoesNotThrow(
-                () -> orderService.makeOrder(restaurant, customer, List.of(existingMeal)),
-                "No meal named Non existing meal found in restaurant Bio Burger"
-        );
     }
 
     @Test

@@ -55,5 +55,8 @@ public class MakeOrderInRestaurantApplication {
         for (Meal meal : TICINO_MEALS) robertDupont.addMeal(meal);
         for (Meal meal : ETOILE_MEALS) magaliNoel.addMeal(meal);
         for (Meal meal : TEXAN_MEALS) nicolasBenoit.addMeal(meal);
+
+        robertDupont.updateMealPrice(Meals.PIZZA_TONNO, 15.0);
+        robertDupont.checkMealPriceHistory(Meals.PIZZA_TONNO);
     }
 }
