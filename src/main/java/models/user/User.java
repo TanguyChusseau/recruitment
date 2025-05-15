@@ -1,17 +1,15 @@
-package model.user;
+package models.user;
 
-import model.Entity;
+import models.Entity;
 import static java.lang.String.format;
 
-public interface User extends Entity
-{
+public interface User extends Entity {
     String getFirstName();
 
     String getLastName();
 
     @Override
-    default String getName()
-    {
+    default String getName() {
         return format("%s %s", getFirstName(), getLastName().toUpperCase());
     }
 }
