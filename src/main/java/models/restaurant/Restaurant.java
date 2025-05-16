@@ -30,15 +30,19 @@ public class Restaurant implements Entity {
         return Collections.unmodifiableList(this.orders);
     }
 
-    public boolean hasMeal(String mealName) {
-        return this.meals.stream().anyMatch(meal -> meal.getName().equalsIgnoreCase(mealName));
-    }
-
     public void addMeal(Meal meal) {
         this.meals.add(meal);
     }
 
     public void addOrder(Order order) {
         this.orders.add(order);
+    }
+
+    public boolean hasMeal(String mealName) {
+        return this.meals.stream().anyMatch(meal -> meal.getName().equalsIgnoreCase(mealName));
+    }
+
+    public boolean isVegetarian() {
+        return this.getMeals().stream().allMatch(meal -> meal.getType() == MealType.VEGETARIAN);
     }
 }
