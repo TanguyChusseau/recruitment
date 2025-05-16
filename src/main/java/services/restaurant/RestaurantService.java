@@ -1,7 +1,6 @@
 package services.restaurant;
 
 import models.restaurant.Meal;
-import models.restaurant.MealType;
 import models.restaurant.Restaurant;
 import models.restaurant.exceptions.MealAlreadyExistsException;
 import models.restaurant.exceptions.MealNotFoundException;

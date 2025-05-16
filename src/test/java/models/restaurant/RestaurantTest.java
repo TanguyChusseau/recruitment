@@ -1,8 +1,6 @@
-package models.order;
+package models.restaurant;
 
-import models.restaurant.Meal;
-import models.restaurant.MealType;
-import models.restaurant.Restaurant;
+import models.order.Order;
 import models.user.customer.Customer;
 import models.user.customer.CustomerType;
 import org.junit.jupiter.api.Test;

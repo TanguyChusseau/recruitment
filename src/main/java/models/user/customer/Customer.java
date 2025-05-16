@@ -2,6 +2,7 @@ package models.user.customer;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import lombok.Getter;
 import models.order.Order;
@@ -46,6 +47,10 @@ public class Customer implements User {
 
     public void makeOrder(Restaurant restaurant, List<Meal> meals) {
         this.orderService.makeOrder(restaurant, this, meals);
+    }
+
+    public void makeOrders(Map<Restaurant, List<Meal>> restaurantsAndMeals) {
+        this.orderService.makeOrders(restaurantsAndMeals, this);
     }
 
     public List<Restaurant> getVegetarianRestaurants(List<Restaurant> restaurants) {

@@ -7,8 +7,7 @@ import models.restaurant.Restaurant;
 import models.user.customer.Customer;
 
 import java.util.List;
-
-import static java.lang.String.format;
+import java.util.Map;
 
 public class OrderService extends AbstractOrderService {
     public void makeOrder(Restaurant restaurant, Customer customer, List<Meal> meals) {
@@ -22,5 +21,14 @@ public class OrderService extends AbstractOrderService {
 
         restaurant.addOrder(order);
         customer.addOrder(order);
+    }
+
+    public void makeOrders(Map<Restaurant,  List<Meal>> restaurantsAndMeals, Customer customer) {
+        for (Map.Entry<Restaurant, List<Meal>> restaurantAndMeals : restaurantsAndMeals.entrySet()) {
+            Restaurant restaurant = restaurantAndMeals.getKey();
+            List<Meal> meals = restaurantAndMeals.getValue();
+
+            this.makeOrder(restaurant, customer, meals);
+        }
     }
 }

@@ -1,4 +1,4 @@
-package services;
+package services.restaurant;
 
 import models.restaurant.Meal;
 import models.restaurant.MealType;
@@ -7,7 +7,6 @@ import models.restaurant.exceptions.MealAlreadyExistsException;
 import models.restaurant.exceptions.MealNotFoundException;
 import models.restaurant.exceptions.MealInvalidPriceException;
 import org.junit.jupiter.api.Test;
-import services.restaurant.RestaurantService;
 
 import java.time.LocalDateTime;
 import java.util.List;
